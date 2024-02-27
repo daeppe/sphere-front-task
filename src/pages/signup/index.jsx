@@ -40,26 +40,30 @@ export default function SignUp() {
 
     };
 
-    return (<div>
-        <h2>Cadastre-se</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='textfield'>
+    return (<div className='signin-signup'>
+        <form onSubmit={handleSubmit(onSubmit)} className='card'>
+            <div className="card-header">
+                <h2>Cadastre-se</h2>
+            </div>
+            <div className='card-content'>
                 <p>Nome</p>
                 <input label="name" {...register('name')} />
                 {errors.name?.message && <p>{errors.name?.message}</p>}
             </div>
-            <div className='textfield'>
+            <div className='card-content'>
                 <p>Email</p>
                 <input label="email" {...register('email')} />
                 {errors.email?.message && <p>{errors.email?.message}</p>}
             </div>
-            <div className='textfield'>
+            <div className='card-content'>
                 <p>Senha</p>
                 <input type='password' label="Password" {...register('password')} />
                 {errors.password?.message && <p>{errors.password?.message}</p>}
             </div>
-            <button type='submit'>Cadastrar</button>
+            <div className="card-footer">
+                <button className='submit' type='submit'>Cadastrar</button>
+                <Link to={'/'}>Já possuo conta.</Link>
+            </div>
         </form>
-        <Link to={'/'}>Já possuo conta.</Link>
     </div>);
 }

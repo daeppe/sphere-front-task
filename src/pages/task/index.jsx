@@ -8,6 +8,8 @@ import { useUser } from '../../contexts/User';
 import { useNavigate } from 'react-router-dom';
 import { useTask } from '../../contexts/Task';
 
+import './style.css';
+
 export default function Task() {
     const navigate = useNavigate();
     const { user, isLoggedIn, updateUser } = useUser();
@@ -59,25 +61,31 @@ export default function Task() {
 
     return (<>
         <Header user={user} isLoggedIn={isLoggedIn} updateUser={updateUser} />
-        <h2>Criar Tarefas</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <p>Título</p>
-                <input label="title" {...register('title')} />
-                {errors.title?.message && <p>{errors.title?.message}</p>}
-            </div>
-            <div>
-                <p>Finalizar até</p>
-                <input type='date' label="deadline" {...register('deadline')} />
-                {errors.deadline?.message && <p>{errors.deadline?.message}</p>}
-            </div>
-            <div>
-                <p>Descrição</p>
-                <input label="description" {...register('description')} />
-                {errors.description?.message && <p>{errors.description?.message}</p>}
-            </div>
-            <button type='submit'>Criar</button>
-        </form>
+        <div className='createtask'>
+            <form onSubmit={handleSubmit(onSubmit)} className='card'>
+                <div className="card-header">
+                    <h2>Criar Tarefas</h2>
+                </div>
+                <div className='card-content'>
+                    <p>Título</p>
+                    <input label="title" {...register('title')} />
+                    {errors.title?.message && <p>{errors.title?.message}</p>}
+                </div>
+                <div className='card-content'>
+                    <p>Finalizar até</p>
+                    <input type='date' label="deadline" {...register('deadline')} />
+                    {errors.deadline?.message && <p>{errors.deadline?.message}</p>}
+                </div>
+                <div className='card-content'>
+                    <p>Descrição</p>
+                    <input label="description" {...register('description')} />
+                    {errors.description?.message && <p>{errors.description?.message}</p>}
+                </div>
+                <div className="card-footer">
+                    <button type='submit'>Criar</button>
+                </div>
+            </form>
+        </div>
     </>
     );
 }

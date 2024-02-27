@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useUser } from '../../contexts/User';
+import './style.css';
 
 export default function SignIn() {
     const navigate = useNavigate();
@@ -41,21 +42,25 @@ export default function SignIn() {
 
     };
 
-    return (<div>
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='textfield'>
+    return (<div className='signin-signup'>
+        <form onSubmit={handleSubmit(onSubmit)} className='card'>
+            <div className="card-header">
+                <h2>Login</h2>
+            </div>
+            <div className='card-content'>
                 <p>Email</p>
                 <input label="email" {...register('email')} />
                 {errors.email?.message && <p>{errors.email?.message}</p>}
             </div>
-            <div className='textfield'>
+            <div className='card-content'>
                 <p>Senha</p>
                 <input type='password' label="Password" {...register('password')} />
                 {errors.password?.message && <p>{errors.password?.message}</p>}
             </div>
-            <button type='submit'>Logar</button>
+            <div className="card-footer">
+                <button className='submit' type='submit'>Logar</button>
+                <Link to={'signup'}>Não possuo conta.</Link>
+            </div>
         </form>
-        <Link to={'signup'}>Não possuo conta.</Link>
     </div>);
 }

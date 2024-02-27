@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import './style.css';
 
 export default function Header(props) {
     // eslint-disable-next-line react/prop-types
@@ -37,11 +38,15 @@ export default function Header(props) {
     }
     return (
         <header>
-            <Link to={'/dashboard'}><button>Dashboard</button></Link>
-            <Link to={'/task'}><button>Criar Tarefa</button></Link>
-            <button onClick={handlerChangePassword}>Trocar Senha</button>
-            {isChange && <><input type='password' onChange={handlerNewPassword} /><button onClick={handlerAccept}>OK</button></>}
-            <button onClick={handlerLogout}>Logout</button>
+            <nav>
+                <Link to={'/dashboard'}><button>Dashboard</button></Link>
+                <Link to={'/task'}><button>Criar Tarefa</button></Link>
+                <div>
+                    <button onClick={handlerChangePassword}>Trocar Senha</button>
+                    {isChange && <><input type='password' onChange={handlerNewPassword} /><button onClick={handlerAccept}>OK</button></>}
+                </div>
+                <button onClick={handlerLogout}>Logout</button>
+            </nav>
         </header>
     );
 }
