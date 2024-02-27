@@ -8,7 +8,9 @@ const TaskContext = createContext();
 export default function TaskProvider({ children }) {
     const user = JSON.parse(localStorage.getItem('@SphereFrontTask:User'));
 
-    function createTask() { }
+    async function createTask(data) {
+        await api.post('/task/create', data);
+    }
 
     async function findCompletedTask() {
         const tasks = [];

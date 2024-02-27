@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export default function Header(props) {
@@ -37,7 +37,8 @@ export default function Header(props) {
     }
     return (
         <header>
-            <button>Criar Tarefa</button>
+            <Link to={'/dashboard'}><button>Dashboard</button></Link>
+            <Link to={'/task'}><button>Criar Tarefa</button></Link>
             <button onClick={handlerChangePassword}>Trocar Senha</button>
             {isChange && <><input type='password' onChange={handlerNewPassword} /><button onClick={handlerAccept}>OK</button></>}
             <button onClick={handlerLogout}>Logout</button>

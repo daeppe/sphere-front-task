@@ -33,7 +33,7 @@ export default function SignIn() {
                 localStorage.setItem('@SphereFrontTask:User', JSON.stringify(output.data));
                 setTimeout(() => {
                     return navigate('/dashboard');
-                }, 1000);
+                }, 500);
             }
         } catch (error) {
             alert(error.response.data);
