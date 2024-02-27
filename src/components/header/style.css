@@ -1,0 +1,17 @@
+header {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background: #9cd6f857;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav button {
+    width: 100px;
+}
